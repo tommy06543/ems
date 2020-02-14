@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      Customize this policy to fit your own app's needs. For more guidance, see:
+          https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+      Some notes:
+          * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+          * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+          * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+              * Enable inline JS: add 'unsafe-inline' to default-src
+      -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>EMS環境控制系統</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment-with-locales.min.js"></script>
+    <script src="./lib/moment-timezone-with-data.min.js"></script>
+    <script src="./lib/hammer/hammer.min.js"></script>
+    <script src="./lib/hammer/hammer-time.min.js"></script>
+    <!-- Flot -->
+    <script src="./lib/flot/jquery.flot.js"></script>
+    <script src="./lib/flot/jquery.flot.resize.min.js"></script>
+    <script src="./lib/flot/jquery.flot.time.min.js"></script>
+    <script src="./lib/flot/jquery.flot.selection.min.js"></script>
+    <script src="./lib/flot/jquery.flot.axislabels.js"></script>
+    <script src="./lib/flot/jquery.flot.crosshair.js"></script>
+    <script src="./lib/flot/jquery.flot.hiddengraphs.js"></script>
+    <script src="./lib/flot/jquery.flot.dashes.js"></script>
+    <script src="./lib/flot/jquery.flot.categories.js"></script>
+    <script src="./lib/flot/jquery.flot.valuelabels.js"></script>
+    <script src="./lib/flot/jquery.flot.navigate.min.js"></script>
+    <script src="./lib/flot/jquery.flot.smartwidget.js"></script>
+    <!-- <script src="./lib/flot/jquery.flot.touch.js"></script> -->
+</head>
+
+<body class="theme-brown" style="visibility: hidden;">
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-cover" style="background-color:#ddd">
+    </div>
+  
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <div data-page="index" class="page">
+                    <div class="toolbar toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <span></span><span>© 2018 生禾禾科技實業股份有限公司</span><span></span>
+                        </div>
+                    </div>
+                    <div class="page-content login-screen-content" style="display: flex; flex-wrap: wrap; align-content:center;">
+                        <div class="login-screen-title">
+                            <div><img id="logo" src="./img/logo.png" style="height:200px" /></div>
+                            <div>EMS環境控制系統</div>
+                        </div>
+                        <form style="width:100%">
+                            <div class="list-block" v-if="!logged">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">帳號</div>
+                                            <div class="item-input">
+                                                <input type="text" name="Account" placeholder="帳號" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">密碼</div>
+                                            <div class="item-input">
+                                                <input type="password" name="Password" placeholder="密碼" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block" v-if="!logged">
+                                <p><a href="#" class="button button-raised form-to-data">登入</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="http://mobile.shh.tw/js/my-app.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/main.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/cycle.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/cycle_edit.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/source.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/source_edit.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/statistic.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/chart.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/sensor.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/device.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/device_edit.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/account.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/report.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/report_form.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/alarm.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/plant_switch.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/datamanual.js"></script>
+<script type="text/javascript" src="http://mobile.shh.tw/js/datamanual_edit.js"></script>
+
+</html>

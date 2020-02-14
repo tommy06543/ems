@@ -1,0 +1,39 @@
+<div data-page="report" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">問題報修</div>
+            <div class="right">
+                <a @click="route('report_form.html')" class="link icon-only"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="list-block accordion-list">
+            <ul>
+                <li class="accordion-item" v-for="item in _.orderBy(report, ['ReportedTime'], ['desc'])">
+                    <a href="#" class="item-content item-link">
+                        <div class="item-media"><i :class="'fa fa-lg fa-fw ' + (item.SolvedTime ? 'fa-check-circle-o' : 'fa-circle-o')"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{item.ReportedTime}}</div>
+                        </div>
+                    </a>
+                    <div class="accordion-item-content">
+                        <div class="content-block">
+                          <p>{{item.Info}}</p>
+                        </div>
+                        <div class="card" v-if="item.SolvedTime">
+                            <div class="card-header">回覆: {{item.SolvedTime}}</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">{{item.Answer}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

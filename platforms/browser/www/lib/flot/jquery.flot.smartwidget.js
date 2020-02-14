@@ -216,46 +216,6 @@ And each series support the following options:
                         placeholder.append("<div class='flot-smartwidget-" + placeholder[0].id + "' style='position:absolute; top:" + plot.getPlotOffset().top + "px; bottom:" + plot.getPlotOffset().bottom + "px; left:" + plot.pointOffset(item).left + "px; color:#666; border-left:1px solid; font-size:smaller; pointer-events:none'><i class='fa fa-caret-left fa-fw' aria-hidden='true'></i>" + item.label + "</div>");
                 }
             }
-
-            // Y坐標軸提示
-            $.each(plot.getAxes(), function (i, axis) {
-                if (!axis.show || !axis.box)
-                return;
-
-                var box = axis.box;
-
-                $("<div class='axisTarget' class='flot-smartwidget-" + placeholder[0].id + "' style='position:absolute; left:" + box.left + "px; top:" + box.top + "px; width:" + box.width +  "px; height:" + box.height + "px'></div>")
-                    .data("axis.direction", axis.direction)
-                    .data("axis.n", axis.n)
-                    .css({ backgroundColor: "#f00", opacity: 0, cursor: "pointer" })
-                    .appendTo(plot.getPlaceholder())
-                    .hover(
-                        function () { 
-                            if(axis.options.label) {
-                                $(this).css({ opacity: 0.10 }) 
-
-                                var s = "坐標軸對應";
-                                $.each(axis.options.label, function(index, item) {
-                                    s += "</br>" + item;
-                                });
-
-                                $("#flotTooltip_" + placeholder[0].id).html(s).show();
-                                if(box.left < plot.width() / 2)
-                                    $("#flotTooltip_" + placeholder[0].id).css({left: box.left, right: ''});
-                                else
-                                    $("#flotTooltip_" + placeholder[0].id).css({left: '', right: plot.getCanvas().width - box.left});
-                            }
-                        },
-                        function () {
-                            $(this).css({ opacity: 0 });
-                            $("#flotTooltip_" + placeholder[0].id).hide();
-                        }
-                        
-                    )
-                    .click(function () {
-                        $("#click").text("You clicked the " + axis.label + axis.n + "axis!")
-                    });
-            });
         }
         
         plot.checkSelection = function() {

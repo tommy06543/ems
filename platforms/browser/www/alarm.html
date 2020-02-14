@@ -1,0 +1,52 @@
+<div data-page="alarm" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">警報</div>
+            <div class="right"></div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="card" v-for="item in _.orderBy(alarm, ['Read', 'SentTime'], ['asc', 'desc'])">
+            <div class="card-content" @click="setRead(item)">
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">接收時間 <span class="badge color-red" v-if="!item.Read">新訊息</span></div>
+                                <div class="item-after">{{item.SentTime}}</div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">廠區</div>
+                                <div class="item-after">{{item.Title}}</div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">設備</div>
+                                <div class="item-after">{{item.Interface}} - {{item.Channel}}</div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">數值/正常範圍</div>
+                                <div class="item-after">{{item.Value}} / {{item.AlarmMin ? item.AlarmMin : '無下限'}} ~ {{item.AlarmMax ? item.AlarmMax : '無上限'}}</div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">異常開始時間</div>
+                                <div class="item-after">{{item.NormalTime}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

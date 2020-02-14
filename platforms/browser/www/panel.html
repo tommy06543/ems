@@ -1,0 +1,94 @@
+<div class="card facebook-card" v-if="account">
+    <div class="card-header no-border">
+        <div class="facebook-avatar"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></div>
+        <div class="facebook-name">{{account.Company || account.Account}}</div>
+        <div class="facebook-date">廠區總數: {{plant_list.length}}</div>
+    </div>
+    <div class="card-footer no-border">
+        <a @click="route('account.html')" class="link close-panel">帳戶</a>
+        <a @click="route('report.html')" class="link close-panel">報修</a>
+        <a @click="route('alarm.html')" class="link close-panel"><i class="icon">警報<span class="badge color-red" style="top:0" v-if="_.filter(alarm, {Read: 0}).length">{{_.filter(alarm, {Read: 0}).length}}</span></i></a>
+        <!--a href="#" class="link" @click.prevent="logout">登出</a-->
+    </div>
+</div>
+<div class="card facebook-card" v-if="plant_list">
+    <div class="card-header">
+        <div class="facebook-avatar"><i class="fa fa-university fa-2x" aria-hidden="true"></i></div>
+        <div class="facebook-name">{{selectedPlant.Title}}</div>
+        <div class="facebook-date">{{selectedPlant.StartDate}} ~ {{selectedPlant.EndDate}}</div>
+    </div>
+    <div class="card-content">
+        <div class="list-block">
+          <ul>
+            <li>
+              <a @click="route('cycle.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">飼養週期</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a @click="route('source.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">標準表</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a @click="route('statistic.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">日報表</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a @click="route('chart.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">曲線圖</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <!--<li>
+              <a @click="route('plan.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">平面圖</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>-->
+            <li>
+              <a @click="route('sensor.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">感測器</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a @click="route('device.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">設備</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a @click="route('DataManual.html')" class="item-link item-content close-panel">
+                <div class="item-inner">
+                  <div class="item-title">人工記錄數據(更新中)</div>
+                  <div class="item-after"></div>
+                </div>
+              </a>
+            </li>           
+          </ul>
+        </div>
+    </div>
+    <div class="card-footer no-border" v-if="plant_list.length > 1">
+        <span></span>
+        <a @click="route('plant_switch.html')" class="link close-panel">切換廠區</a>
+    </div>
+</div>
