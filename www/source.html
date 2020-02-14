@@ -1,0 +1,28 @@
+<div data-page="source" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">標準表</div>
+            <div class="right">
+                <a @click="route('source_edit.html')" class="link icon-only" :class="{disabled: readonly}"><i class="fa fa-plus" aria-hidden="true" v-if="!readonly"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="list-block">
+            <ul>
+                <li v-for="item in source">
+                    <a @click="route('source_edit.html?SourceOID=' + item.OID)" class="item-content item-link">
+                        <div class="item-media"><i :class="'fa fa-lg fa-fw ' + (item.Readonly ? 'fa-search' : 'fa-pencil-square')"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{item.Title}}</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

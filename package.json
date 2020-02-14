@@ -1,0 +1,16 @@
+{
+  "name": "ems",
+  "version": "1.0.0",
+  "description": "> [Framework7](http://www.idangero.us/framework7) is a Mobile UI framework that can be used to build hybrid apps with PhoneGap. This template allows you to get started using Framework7    quickly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "framework7-react": "^0.9.3",
+    "git": "^0.1.5",
+    "react": "^16.0.0"
+  }
+}

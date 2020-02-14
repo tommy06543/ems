@@ -1,0 +1,110 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+.statusbar-overlay {
+    background: #000000;
+}
+.facebook-card .card-header {
+    display: block;
+    padding: 10px;
+}
+.facebook-card .facebook-avatar {
+    float: left;
+}
+.facebook-card .facebook-name {
+    margin-left: 44px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.facebook-card .facebook-date {
+    margin-left: 44px;
+    font-size: 13px;
+    color: #8e8e93;
+}
+.facebook-card .card-footer {
+    background: #fafafa;
+}
+.facebook-card .card-footer a {
+    /* color: #81848b; */
+    font-weight: 500;
+}
+.facebook-card .card-content img {
+    display: block;
+}
+.facebook-card .card-content-inner {
+    padding: 15px 10px;
+}  
+
+.page-content > .content-block-title:first-child, .tab > .list-block:first-child {
+    margin-top: 10px;
+}
+
+.navbar-through .page-content .list-block, .navbar-fixed .page-content .list-block {
+    margin-top: 0;
+}
+
+.picker-calendar-prev-month, .picker-calendar-prev-year {
+    padding-right: 0 !important;
+}
+
+.picker-calendar-next-month, .picker-calendar-next-year {
+    padding-left: 0 !important;
+}
+
+.list-block {
+    margin-bottom: 0;
+}
+
+.list-block .item-title {
+    overflow: visible;
+}
+
+.list-block input {
+    text-align: right;
+}
+
+/* Android版 SmartSelect偏移補正 */
+.android .list-block.inputs-list .smart-select .item-inner {
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.item-input.item-input-field.required:after, .item-inner.required:after {
+    background-color: #F00;
+}
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+/* 
+.toolbar-through .page-content .list-block, .toolbar-fixed .page-content .list-block {
+    margin-bottom: 0;
+} */
+/* 
+.list-block select+.item-content .item-inner:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+} */

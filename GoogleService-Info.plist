@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>164995772320-le0fhkd5l4l97j0nimnnlhrvif6i3rqa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.164995772320-le0fhkd5l4l97j0nimnnlhrvif6i3rqa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7W-29XTz4kCW5lwWj-Uda3zYvQvb4C9Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>164995772320</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.growthment.ems</string>
+	<key>PROJECT_ID</key>
+	<string>shh-ems</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shh-ems.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:164995772320:ios:fa5f264b2267b7da</string>
+	<key>DATABASE_URL</key>
+	<string>https://shh-ems.firebaseio.com</string>
+</dict>
+</plist>

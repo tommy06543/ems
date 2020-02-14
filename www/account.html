@@ -1,0 +1,138 @@
+<div data-page="account" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">用戶帳號資訊</div>
+            <div class="right">
+                <a href="#" class="link icon-only" @click="submit"><i class="fa fa-check" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="card">
+            <div class="card-footer">
+                <span><i class="fa fa-user-circle" aria-hidden="true"></i> 用戶帳號</span>
+                <span>{{account.Account}}</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="list-block">
+                    <form class="validate">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">修改密碼</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="password" name="Password" v-model="newPassword" placeholder="要修改登入密碼才需填寫">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="newPassword">
+                                <div class="item-content">
+                                    <div class="item-media">確認密碼</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="password" name="RePassword" placeholder="請再次輸入相同密碼" validate="Password">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="account.Company">
+                                <div class="item-content">
+                                    <div class="item-media">公司</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="Company" :value="account.Company">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="account.Contact">
+                                <div class="item-content">
+                                    <div class="item-media">聯絡人</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="Contact" :value="account.Contact">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="account.MobilePhone">
+                                <div class="item-content">
+                                    <div class="item-media">手機</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="tel" name="MobilePhone" :value="account.MobilePhone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">電話</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="tel" name="Telephone" :value="account.Telephone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="account.Address">
+                                <div class="item-content">
+                                    <div class="item-media">地址</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="Address" :value="account.Address">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">Email</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="email" name="Email" :value="account.Email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">備註</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="Remark" :value="account.Remark">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="list-block">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content" @click.prevent="logout">
+                                <div class="item-media"><i class="fa fa-sign-out" aria-hidden="true"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title">登出</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "164995772320",
+    "firebase_url": "https://shh-ems.firebaseio.com",
+    "project_id": "shh-ems",
+    "storage_bucket": "shh-ems.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164995772320:android:fa5f264b2267b7da",
+        "android_client_info": {
+          "package_name": "com.growthment.ems"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164995772320-llu33l98jmrmhks10adqa388ga6saq4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBHLE9nrxTl4KF14DWSqlnzF6Ndm7Tz30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,62 @@
+<div data-page="chart" class="page navbar-fixed toolbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">曲線圖</div>
+            <div class="right">
+                <a href="#" class="link icon-only" onclick="ajaxSensor(vue)"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Toolbar -->
+    <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+            <a href="#" class="link smart-select active" data-open-in="picker" data-picker-close-text="關閉飼養週期挑選" data-back-on-select="true" data-picker-height="400px">
+                <select v-model="selectedCycleOID">
+                    <option v-for="s in cycle" :value="s.OID">{{s.StartDate}} ~ {{s.EndDate}}</option>
+                </select>
+                <span class="tabbar-label">週期</span>
+            </a>
+            <a href="#" class="link active" v-on:click="calendarDateOpen">
+                <input type="hidden" name="selectedDate" />
+                <span class="tabbar-label">時間</span>
+            </a>
+            <a href="#" class="link smart-select active" data-open-in="picker" data-picker-close-text="關閉檢視模式設定" data-back-on-select="true">
+                <select v-model="periodMode">
+                    <option value="D" selected>單日平均</option>
+                    <option value="H" selected>每小時平均</option>
+                    <option value="M" selected>十分鐘平均</option>
+                </select>
+                <span class="tabbar-label">檢視</span>
+            </a>
+            <!--<a href="#" class="link smart-select" data-open-in="picker" data-picker-close-text="關閉日齡挑選" data-back-on-select="true" data-picker-height="400px">
+                <select v-model="selectedDate">
+                    <option value="" selected>全週期 (每日平均)</option>
+                    <option v-for="s in cycle_data" :value="s.Date">{{s.Date}} (日齡: {{s.DayNumber}})</option>
+                </select>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>-->
+            <a href="#" class="link smart-select active" data-page-title="參數顯示設定" data-back-text="返回" data-back-on-select="true">
+                <select v-model="parameters" multiple>
+                    <optgroup label="飼養參數">
+                        <option v-for="s in chartLoadData" :value="s.label">{{s.label}}</option>
+                    </optgroup>
+                    <optgroup :label="type" v-for="(group, type) in _.groupBy(sensor, 'Parameter')">
+                        <option v-for="item in group" :value="item.ChannelOID">{{item.InterfaceTitle}}{{item.Title != type ? (' - ' + item.Title) : ''}}</option>
+                    </optgroup>
+                </select>
+                <span class="tabbar-label">參數</span>
+            </a>
+            <!--<a href="#" class="tab-link smart-select active" data-page-title="挑選快捷組合" data-back-on-select="true">
+                <i class="fa fa-flag" aria-hidden="true"></i>
+                <span class="tabbar-label">快捷</span>
+            </a>-->
+        </div>
+    </div>
+    <div class="page-content">
+        <div id="chartCustomized" style="width:100%; height:100%; background-color:#FFF"></div>
+    </div>
+</div>

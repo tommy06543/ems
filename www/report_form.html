@@ -1,0 +1,31 @@
+<div data-page="report_form" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">問題報修</div>
+            <div class="right">
+                <a href="#" class="link icon-only" @click="submit" :class="{disabled: readonly}"><i class="fa fa-check" aria-hidden="true" v-if="!readonly"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="list-block">
+            <form>
+                <ul>
+                    <li class="align-top">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-input">
+                                  <textarea name="Info" placeholder="請輸入欲回報的內容"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>

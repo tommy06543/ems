@@ -1,0 +1,92 @@
+<div data-page="source_edit" class="page navbar-fixed toolbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">標準表</div>
+            <div class="right">
+                <a href="#" class="link icon-only" @click="submit" :class="{disabled: readonly}"><i class="fa fa-check" aria-hidden="true" v-if="!readonly"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Tab bar with tab links -->
+    <div class="toolbar tabbar toolbar-bottom">
+        <div class="toolbar-inner">
+            <a href="#tab1" class="tab-link active">體重</a>
+            <a href="#tab2" class="tab-link">吃料</a>
+            <a href="#tab3" class="tab-link">溫度</a>
+        </div>
+    </div>
+    <div class="page-content">
+        <form class="validate" v-if="source">
+            <input type="hidden" name="Source_OID" :value="source_OID" />
+            <div class="list-block" style="margin-bottom:0" v-if="source">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">名稱</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="text" name="Source_Title" :value="source.Title" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tabs, tabs wrapper -->
+            <div class="tabs" v-if="source_data">
+                <div id="tab1" class="tab active">
+                    <div class="list-block">
+                        <ul>
+                            <li v-for="item in source_data">
+                                <div class="item-content">
+                                    <div class="item-media">標準重(g) (日齡 {{item.Day}})</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="tel" :name="'Weight_' + item.Day" :value="item.Weight" :disabled="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="tab2" class="tab">
+                    <div class="list-block">
+                        <ul>
+                            <li v-for="item in source_data">
+                                <div class="item-content">
+                                    <div class="item-media">標準吃料(g) (日齡 {{item.Day}})</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="tel" :name="'Fodder_' + item.Day" :value="item.Fodder" :disabled="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="tab3" class="tab">
+                    <div class="list-block">
+                        <ul>
+                            <li v-for="item in source_data">
+                                <div class="item-content">
+                                    <div class="item-media">標準溫度(°C) (日齡 {{item.Day}})</div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="tel" :name="'Temperature_' + item.Day" :value="item.Temperature" :disabled="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

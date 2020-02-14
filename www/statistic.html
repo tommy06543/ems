@@ -1,0 +1,110 @@
+<div data-page="statistic" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">日報表</div>
+            <div class="right">
+                <a href="#" class="link icon-only smart-select" data-open-in="picker" data-picker-close-text="關閉飼養週期挑選" data-back-on-select="true" data-picker-height="400px">    
+                    <select v-model="selectedCycleOID">
+                        <option v-for="s in cycle" :value="s.OID">{{s.StartDate}} ~ {{s.EndDate}}</option>
+                    </select>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row no-gutter" style="background-color:#FFF; white-space: nowrap">
+            <div class="data-table">
+                <table>
+                    <tbody v-for="(item, index) in _.orderBy(cycle_data, ['DayNumber'], ['desc'])">
+                        <tr v-if="index % 15 == 0">
+                            <td class="label-cell color-gray">日期(日齡)</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">{{item.Date}} ({{item.DayNumber}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="data-table">
+                <table>
+                    <tbody v-for="(item, index) in _.orderBy(cycle_data, ['DayNumber'], ['desc'])">
+                        <tr v-if="index % 15 == 0">
+                            <td class="numeric-cell color-gray" v-for="col in [{Title: '毛雞重', Key: 'Weight'},{Title: '標準重', Key: 'WeightStd'},{Title: '增重', Key: 'WeightGain'},{Title: '均勻度', Key: 'Evenness'},{Title: '秤重隻數', Key: 'WeightAmount'},{Title: '累計隻數', Key: 'sumWeightAmount'},{Title: '手磅重量', Key: 'WeightManual'},{Title: '手磅隻數', Key: 'WeightManualAmount'},{Title: '死亡', Key: 'Dead'},{Title: '淘汰', Key: 'Failure'},{Title: '育成率', Key: 'AliveRatio'},{Title: '換肉率', Key: 'FCR'},{Title: '飼料錶', Key: 'FodderMax'},{Title: '日吃料', Key: 'Fodder'},{Title: '標準料', Key: 'FodderStd'},{Title: '水量錶', Key: 'WaterMax'},{Title: '日飲水', Key: 'Water'},{Title: '最高溫', Key: 'TemperatureHigh'},{Title: '最低溫', Key: 'TemperatureLow'}]">{{col.Title}}</td>
+                        </tr>
+                        <tr>
+                            <td class="numeric-cell" v-for="col in [{Title: '毛雞重', Key: 'Weight'},{Title: '標準重', Key: 'WeightStd'},{Title: '增重', Key: 'WeightGain'},{Title: '均勻度', Key: 'Evenness'},{Title: '秤重隻數', Key: 'WeightAmount'},{Title: '累計隻數', Key: 'sumWeightAmount'},{Title: '手磅重量', Key: 'WeightManual'},{Title: '手磅隻數', Key: 'WeightManualAmount'},{Title: '死亡', Key: 'Dead'},{Title: '淘汰', Key: 'Failure'},{Title: '育成率', Key: 'AliveRatio'},{Title: '換肉率', Key: 'FCR'},{Title: '飼料錶', Key: 'FodderMax'},{Title: '日吃料', Key: 'Fodder'},{Title: '標準料', Key: 'FodderStd'},{Title: '水量錶', Key: 'WaterMax'},{Title: '日飲水', Key: 'Water'},{Title: '最高溫', Key: 'TemperatureHigh'},{Title: '最低溫', Key: 'TemperatureLow'}]">{{item[col.Key]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 標題 ->
+        <div class="row no-gutter" id="swiper_header" style="background-color:#FFF">
+            <div class="col-25">
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="label-cell">日期(日齡)</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="col-75">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="col in [{Title: '毛雞重', Key: 'Weight'},{Title: '標準重', Key: 'WeightStd'},{Title: '增重', Key: 'WeightGain'},{Title: '均勻度', Key: 'Evenness'},{Title: '秤重隻數', Key: 'WeightAmount'},{Title: '累計隻數', Key: 'sumWeightAmount'},{Title: '手磅重量', Key: 'WeightManual'},{Title: '手磅隻數', Key: 'WeightManualAmount'},{Title: '死亡', Key: 'Dead'},{Title: '淘汰', Key: 'Failure'},{Title: '育成率', Key: 'AliveRatio'},{Title: '換肉率', Key: 'FCR'},{Title: '飼料錶', Key: 'FodderMax'},{Title: '日吃料', Key: 'Fodder'},{Title: '標準料', Key: 'FodderStd'},{Title: '水量錶', Key: 'WaterMax'},{Title: '日飲水', Key: 'Water'},{Title: '最高溫', Key: 'TemperatureHigh'},{Title: '最低溫', Key: 'TemperatureLow'}]">
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="numeric-cell">{{col.Title}}</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 內容 ->
+        <div class="row no-gutter" id="swiper_contents" style="background-color:#FFF">
+            <div class="col-25">
+                <div class="data-table">
+                    <table>
+                        <tbody>
+                            <tr v-for="item in _.orderBy(cycle_data, ['DayNumber'], ['desc'])">
+                                <td class="label-cell">{{item.Date}} ({{item.DayNumber}})</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-75">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="col in [{Title: '毛雞重', Key: 'Weight'},{Title: '標準重', Key: 'WeightStd'},{Title: '增重', Key: 'WeightGain'},{Title: '均勻度', Key: 'Evenness'},{Title: '秤重隻數', Key: 'WeightAmount'},{Title: '累計隻數', Key: 'sumWeightAmount'},{Title: '手磅重量', Key: 'WeightManual'},{Title: '手磅隻數', Key: 'WeightManualAmount'},{Title: '死亡', Key: 'Dead'},{Title: '淘汰', Key: 'Failure'},{Title: '育成率', Key: 'AliveRatio'},{Title: '換肉率', Key: 'FCR'},{Title: '飼料錶', Key: 'FodderMax'},{Title: '日吃料', Key: 'Fodder'},{Title: '標準料', Key: 'FodderStd'},{Title: '水量錶', Key: 'WaterMax'},{Title: '日飲水', Key: 'Water'},{Title: '最高溫', Key: 'TemperatureHigh'},{Title: '最低溫', Key: 'TemperatureLow'}]">
+                            <div class="data-table">
+                                <table>
+                                    <tbody>
+                                        <tr v-for="item in _.orderBy(cycle_data, ['DayNumber'], ['desc'])">
+                                            <td class="numeric-cell">{{item[col.Key]}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+        </div-->
+    </div>
+</div>

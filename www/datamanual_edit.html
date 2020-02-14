@@ -1,0 +1,93 @@
+<div data-page="datamanual_edit" class="page navbar-fixed toolbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">人工記錄數據</div>
+            <div class="right">
+                <!--a href="#" class="link icon-only" @click="submit" :class="{disabled: readonly}"><i class="fa fa-check" aria-hidden="true" v-if="!readonly"></i></a-->
+                 <a href="#" class="link icon-only" @click="submit" :class="{disabled: readonly}"><i class="fa fa-check" aria-hidden="true" ></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Tab bar with tab links -->
+    <div class="toolbar tabbar toolbar-bottom">  
+        <div class="toolbar-inner">
+          <a href="#tab0" class="tab-link active" >全部</a>
+          <a href="#tab1" class="tab-link">秤重</a>
+          <a href="#tab2" class="tab-link">淘汰</a>
+          <a href="#tab3" class="tab-link">當日飲水</a>
+        </div>      
+    </div>
+    
+    <div class="tabs page-content">
+        <form class="validate" v-if="load_cycle_data">            
+            <!-- Tabs, tabs wrapper -->
+            <div class="tabs">    
+               <div id="tab0" class="tab active">
+                    <div class="list-block">
+                        <ul>
+                            <li v-for="item in load_cycle_data">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <!--div class="item-input"-->   
+                                            <table border=1>
+                                                <tr>
+                                                <th rowspan=6>
+                                                    <div class="item-media"> {{item.Date}}</div>                                               
+                                                </tr>
+                                                <tr>
+                                                   <td>人工秤重(平均體重)</td> 
+                                                   <td><input type="number" :name= "'WeightManual_' + item.Date" :value="item.WeightManual" :disabled=false > </td>
+                                                </tr> 
+                                                <tr>  
+                                                   <td>人工秤重隻數</td>                                                 
+                                                   <td><input type="number" :name= "'WeightManualAmount_' + item.Date":value="item.WeightManualAmount" :disabled=false ></td>
+                                                </tr> 
+                                                <tr> 
+                                                    <td>當日飲水</td> 
+                                                    <td><input type="number" :name= "'Water_' + item.Date":value="item.Water" :disabled=false ></td>
+                                                 </tr> 
+                                                <tr>   
+                                                    <td>死亡(隻數)</td> 
+                                                    <td><input type="number" :name= "'Dead_' + item.Date":value="item.Dead" :disabled=false ></td>
+                                                </tr> 
+                                                <tr>    
+                                                    <td>淘汰(隻數)</td> 
+                                                    <td><input type="number" :name= "'Failure_' + item.Date":value="item.Failure" :disabled=false ></td>  
+                                                </tr>   
+                                            </table>
+                                        <!--/div-->
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+               </div>
+               <div id="tab1" class="tab">
+                    <div class="list-block">
+                        <ul>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div id="tab2" class="tab">
+                    <div class="list-block">
+                        <ul>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div id="tab3" class="tab">
+                    <div class="list-block">
+                        <ul>
+                             
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>    
+</div>

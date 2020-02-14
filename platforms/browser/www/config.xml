@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.growthment.ems" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>EMS</name>
+    <description>
+        Growthment Technology CO., LTD. 
+    </description>
+    <author email="tommy@shh.tw" href="http://shh.tw">
+        Growthment Technology CO., LTD.
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
+    <preference name="pgb-builder-version" value="2" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="SplashScreenDelay" value="0" />
+</widget>

@@ -1,0 +1,165 @@
+<div data-page="cycle_edit" class="page navbar-fixed">
+    <!-- Top Navbar-->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link icon-only"><i class="icon icon-back"></i></a>
+            </div>
+            <div class="center sliding">飼養週期</div>
+            <div class="right">
+                <a href="#" class="link icon-only" @click="submit" :class="{disabled: readonly}"><i class="fa fa-check" aria-hidden="true" v-if="!readonly"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="content-block-title">{{readonly ? '檢視' : (cycle ? '修改' : '新增')}}飼養週期{{cycle ? ' (' + cycle.StartDate + ')' : ''}}</div>
+        <div class="list-block">
+            <form class="validate">
+                <input type="hidden" name="OID" :value="cycle ? cycle.OID : null" />
+                <ul>
+                    <li>
+                        <a href="#" class="item-link smart-select" data-page-title="種雞來源" data-back-on-select="true">
+                            <select name="SourceOID" :disabled="readonly">
+                                <option v-for="s in source" :value="s.OID" :selected="cycle && cycle.SourceOID == s.OID">{{s.Title}}</option>
+                            </select>
+                            <div class="item-content">
+                                <div class="item-media">種雞來源</div>
+                                <div class="item-inner">
+                                    <div class="item-after smart-select-value">{{cycle ? _.find(source, {OID: cycle.SourceOID}).Title : source[0].Title}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">開始日期</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="text" name="StartDate" :value="cycle ? cycle.StartDate : null" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">飼養天數</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="PeriodDays" :value="cycle ? cycle.PeriodDays : null" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">額定進雞數量</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="Amount" :value="cycle ? cycle.Amount : null" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">實際進雞數量</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="AmountReal" :value="cycle ? cycle.AmountReal : null" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">雛雞重量</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="Weight" :value="cycle ? cycle.Weight : null" placeholder="公克(g)" :disabled="readonly" required>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">雛雞單價</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="CostChick" :value="cycle ? cycle.CostChick : null" placeholder="$" :disabled="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">藥品水電人工單價</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="CostOthers" :value="cycle ? cycle.CostOthers : null" placeholder="$" :disabled="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link smart-select" data-page-title="吃料量計算" data-back-on-select="true">
+                            <select name="FodderCalc" :disabled="readonly">
+                                <option value="0" :selected="(cycle ? cycle.FodderCalc : null) == 0">飼料秤重自動計算</option>
+                                <option value="1" :selected="(cycle ? cycle.FodderCalc : null) == 1">人工手抄記錄</option>
+                                <option value="2" :selected="(cycle ? cycle.FodderCalc : null) == 2">叫料記錄平均計算</option>
+                            </select>
+                            <div class="item-content">
+                                <div class="item-media">吃料量計算</div>
+                                <div class="item-inner">
+                                    <div class="item-after smart-select-value">{{cycle ? ["飼料秤重自動計算", "人工手抄記錄", "叫料記錄平均計算"][cycle.FodderCalc] : "飼料秤重自動計算"}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">飲水飼料比例</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="WaterFeedRatio" :value="cycle ? cycle.WaterFeedRatio : null" :disabled="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">用藥檢測合格日期</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="text" name="Medicine" :value="cycle ? cycle.Medicine : null" :disabled="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">增重料水停擺警報</div>
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="tel" name="AlarmHour" :value="cycle ? cycle.AlarmHour : null" :disabled="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link smart-select" data-page-title="每日結算時間" data-back-on-select="true">
+                            <select name="DailyConclude" :disabled="readonly">
+                                <option v-for="s in ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]" :value="s + ':00:00'" :selected="cycle ? (cycle.DailyConclude == s + ':00:00') : null">{{s}}:00:00</option>
+                            </select>
+                            <div class="item-content">
+                                <div class="item-media">每日結算時間</div>
+                                <div class="item-inner">
+                                    <div class="item-after smart-select-value">{{cycle ? cycle.DailyConclude : '12:00:00'}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
