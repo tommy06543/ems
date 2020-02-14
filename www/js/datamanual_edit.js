@@ -61,7 +61,7 @@ myApp.onPageInit('datamanual_edit', function (page) {
                         data: data,
                         retryCount: 3,
                         success : function(response) {
-                            ajaxData('DataManual.html', true);
+                            ajaxData('datamanual.html', true);
                         }
                     });
                 } 

@@ -16,7 +16,7 @@
         <div class="list-block" v-if="source">
             <ul>			 
                 <li v-for="item in cycle">
-                    <a @click="route('DataManual_edit.html?PlantOID=' + item.PlantOID +'&StartDate=' + item.StartDate +'&PeriodDays=' + item.PeriodDays)" class="item-content item-link">
+                    <a @click="route('datamanual_edit.html?PlantOID=' + item.PlantOID +'&StartDate=' + item.StartDate +'&PeriodDays=' + item.PeriodDays)" class="item-content item-link">
                         <div class="item-media"><i :class="'fa fa-lg fa-fw ' + (item.Readonly ? 'fa-search' : 'fa-pencil-square')"></i></div>
                         <div class="item-inner">
                             <div class="item-title">{{item.StartDate}}</div>
