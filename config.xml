@@ -32,7 +32,7 @@
         <preference name="BackgroundColor" value="0xff795548"/>
         <icon src="res/icon/android/mipmap-ldpi/ic_launcher.png" density="ldpi" />
         <icon src="res/icon/android/mipmap-mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="res/icon/android/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="res/icon/android/mipmap-hdpi/launcher.png" density="hdpi" />
         <icon src="res/icon/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
         <icon src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
         <icon src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
