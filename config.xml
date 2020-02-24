@@ -28,8 +28,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="14" />
-        <preference name="android-targetSdkVersion" value="28" />
-        <preference name="android-compileSdkVersion" value="28" />
+        <preference name="android-targetSdkVersion" value="29" />
         <preference name="android-windowSoftInputMode" value="adjustResize" />
         <preference name="BackgroundColor" value="0xff795548"/>
         <icon src="res/icon/android/mipmap-ldpi/launcher.png" density="ldpi" />
