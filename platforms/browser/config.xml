@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.growthments.ems" version="1.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.growthment.ems" version="1.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>EMS</name>
     <description>
         Growthment Technology CO., LTD. 
     </description>
-    <author email="shh@shh.tw" href="http://shh.tw">
+    <author email="tommy@shh.tw" href="http://shh.tw">
         Growthment Technology CO., LTD.
     </author>
     <content src="index.html" />
