@@ -8,7 +8,7 @@
         Growthment Technology CO., LTD.
     </author>
     <content src="index.html" />
-    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="pgb-builder-version" value="2" /> 
     <preference name="DisallowOverscroll" value="true" />
     <preference name="SplashScreenDelay" value="0"/>
@@ -39,7 +39,7 @@
         <icon src="res/icon/android/mipmap-xxxhdpi/launcher.png" density="xxxhdpi" />
         <resource-file src="google-services.json" target="/google-services.json" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
-            <activity android:usesCleartextTraffic="true" />
+            <!--activity android:usesCleartextTraffic="true" /-->
         </edit-config>
     </platform>
     <platform name="ios">
