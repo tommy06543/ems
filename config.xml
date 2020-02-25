@@ -39,9 +39,9 @@
         <icon src="res/icon/android/mipmap-xxxhdpi/launcher.png" density="xxxhdpi" />
         <resource-file src="google-services.json" target="/google-services.json" />
      
-        <config-file platform ="android" parent ="/manifest" mode ="merge">
+      
            <application android：usesCleartextTraffic = "true" />
-        </config-file>
+      
      
      
     </platform>
