@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest android:targetSandboxVersion="1">
-	<uses-permission android:name="android.permission.INTERNET" />	 
-    <application android:networkSecurityConfig="@xml/network_security_config">
-		 <!-- ... -->
-    </application>
-</manifest>
